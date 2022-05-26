@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 
-"""ResNe(X)t Head helper."""
+"""LTN Head helper."""
 import numpy as np
 import torch
 import torch.nn as nn
+
+#from ltn.models.batchnorm_helper import (
+#    NaiveSyncBatchNorm1d as NaiveSyncBatchNorm1d,
+#)
+#from ltn.models.nonlocal_helper import Nonlocal
+
 
 
 class MLPHead(nn.Module):
