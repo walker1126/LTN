@@ -8,10 +8,10 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-import slowfast.models.losses as losses
-import slowfast.utils.distributed as du
-import slowfast.utils.logging as logging
-from slowfast.models.video_model_builder import X3D, MViT, ResNet, SlowFast
+import ltn.models.losses as losses
+import ltn.utils.distributed as du
+import ltn.utils.logging as logging
+from ltn.models.backbone_builder import X3D, MViT, ResNet, SlowFast
 
 from .build import MODEL_REGISTRY
 
