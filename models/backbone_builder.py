@@ -7,16 +7,15 @@ import torch
 import torch.nn as nn
 from torch.nn.init import trunc_normal_
 
-import ltn.utils.weight_init_helper as init_helper
-from ltn.models.attention import MultiScaleBlock
-from ltn.models.batchnorm_helper import get_norm
-from ltn.models.stem_helper import PatchEmbed
-from ltn.models.utils import (
-    round_width,
-    validate_checkpoint_wrapper_import,
-)
-
-from . import head_helper, resnet_helper, stem_helper
+#import ltn.utils.weight_init_helper as init_helper
+#from ltn.models.attention import MultiScaleBlock
+#from ltn.models.batchnorm_helper import get_norm
+#from ltn.models.stem_helper import PatchEmbed
+#from ltn.models.utils import (
+#    round_width,
+#    validate_checkpoint_wrapper_import,
+#)
+from . import ltn_head, head_helper, resnet_helper, stem_helper
 from .build import MODEL_REGISTRY
 
 try:
@@ -384,7 +383,7 @@ class SlowFast(nn.Module):
                 detach_final_fc=cfg.MODEL.DETACH_FINAL_FC,
             )
         else:
-            self.head = head_helper.ResNetBasicHead(
+            self.head = ltn_head.ResNetLTNHead(
                 dim_in=[
                     width_per_group * 32,
                     width_per_group * 32 // cfg.SLOWFAST.BETA_INV,
@@ -646,7 +645,7 @@ class ResNet(nn.Module):
         if self.enable_detection:
             x = self.head(x, bboxes)
         else:
-            x = self.head(x, dt, kl)
+            x = self.head(x, dt, kl) # LTN
         return x
 
 
