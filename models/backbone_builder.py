@@ -1,7 +1,5 @@
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 
-
-"""Video models."""
+"""Backbone video models."""
 
 import math
 from functools import partial
