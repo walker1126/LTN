@@ -7,11 +7,11 @@ import torch
 import torch.nn as nn
 from torch.nn.init import trunc_normal_
 
-import slowfast.utils.weight_init_helper as init_helper
-from slowfast.models.attention import MultiScaleBlock
-from slowfast.models.batchnorm_helper import get_norm
-from slowfast.models.stem_helper import PatchEmbed
-from slowfast.models.utils import (
+import ltn.utils.weight_init_helper as init_helper
+from ltn.models.attention import MultiScaleBlock
+from ltn.models.batchnorm_helper import get_norm
+from ltn.models.stem_helper import PatchEmbed
+from ltn.models.utils import (
     round_width,
     validate_checkpoint_wrapper_import,
 )
